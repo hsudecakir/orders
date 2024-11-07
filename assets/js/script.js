@@ -9,8 +9,8 @@ const products = [{
   piece: 1
 },
 {
-  productName: 'Kavun',
-  productPrice: 15,
+  productName: 'Erik',
+  productPrice: 40,
   piece: 1
 },
 {
@@ -19,8 +19,8 @@ const products = [{
   piece: 1
 },
 {
-  productName: 'Karpuz',
-  productPrice: 10,
+  productName: 'Kivi',
+  productPrice: 100,
   piece: 1
 },
 {
