@@ -1,12 +1,42 @@
-const products = ['Elma', 'Armut', 'Kavun', 'Çilek', 'Karpuz', 'Kiraz'];
-const orders = [];
+const products = [{
+  productName: 'Elma',
+  productPrice: 20,
+  piece: 1
+},
+{
+  productName: 'Armut',
+  productPrice: 25,
+  piece: 1
+},
+{
+  productName: 'Kavun',
+  productPrice: 15,
+  piece: 1
+},
+{
+  productName: 'Çilek',
+  productPrice: 50,
+  piece: 1
+},
+{
+  productName: 'Karpuz',
+  productPrice: 10,
+  piece: 1
+},
+{
+  productName: 'Kiraz',
+  productPrice: 65,
+  piece: 1
+}];
+
+let orders = [];
 
 
 function init(){
   const productBtnsContainer = document.querySelector('.product-buttons-container');
 
   for (const product of products) {
-    productBtnsContainer.innerHTML += `<div class="product-buttons">${product}</div>`;
+    productBtnsContainer.innerHTML += `<div class="product-buttons">${product.productName}</div>`;
   }
 
   const productBtns = document.querySelectorAll('.product-buttons');
@@ -18,20 +48,20 @@ function init(){
 
 function writeOrders(){
 
-  const existingProduct = orders.findIndex(order => order.productName == this.innerText);
+  const selectedProduct = products.find(order => order.productName == this.innerText);
 
-  if(existingProduct > -1){
-    orders[existingProduct].piece = orders[existingProduct].piece + 1;
-  } else{
-    orders.push({
-      productName: this.innerText,
-      piece: 1
-    });
+  if(!(orders.includes(selectedProduct))){
+    orders.push(selectedProduct);
+  } else {
+    selectedProduct.piece = selectedProduct.piece + 1;
   }
   ordersList.innerHTML = '';
-    for (const order of orders) {
-      ordersList.innerHTML += `<li>${order.productName} x ${order.piece}</li>`;
-    }
+  let totalPrice = 0;
+  for (const order of orders) {
+    ordersList.innerHTML += `<li>${order.productName} x ${order.piece}kg <span>${order.piece * order.productPrice} TL</span></li>`;
+    totalPrice += order.productPrice * order.piece;
+  }
+  totalPriceTxt.innerText = `Toplam sipariş tutarı ${totalPrice} TL`;
 }
 
 

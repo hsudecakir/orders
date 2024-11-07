@@ -77,6 +77,10 @@ table {
   text-align: center;
 }
 
+.orders h2{
+  margin-bottom: 0;
+}
+
 .product-buttons-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -99,6 +103,16 @@ table {
   background-color: var(--black);
 }
 
+.orders{
+  min-height: 200px;
+  min-width: 257px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
 .orders-container{
   display: flex;
   align-items: center;
@@ -111,7 +125,11 @@ table {
   gap: 16px;
 }
 
-#ordersList li{
+#ordersList li, #totalPriceTxt{
   font-size: 18px;
   font-weight: 500;
+}
+
+#ordersList li span{
+  margin-left: 18px;
 }
